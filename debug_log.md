@@ -15,27 +15,28 @@ _Then I noticed another bug ..._
 
 ## Exercise 1
 
-## Bug 1: Pizzas aren't being displayed after creation
+### Bug 1: Pizzas aren't being displayed after creation - Trace backward
 
 - `TypeError: 'topping' is an invalid keyword argument for PizzaTopping`
-- [FIX] Change append toppings loop to:
+
+- Change append toppings loop to:
     ``` python
     for topping in toppings_list:
         pizza.toppings.append(PizzaTopping(topping_type=topping))
     ```
 
-- [FIX] request.form.get(NAME) to `order_name` and `pizza_size`
+- Change request.form.get(NAME) to `order_name` and `pizza_size`
     ```python
         order_name = request.form.get('order_name')
         pizza_size_str = request.form.get('pizza_size')
     ```
 
-- [FIX] `request.form.get('toppings)` to `request.form.getlist('toppings')`
+- Change `request.form.get('toppings)` to `request.form.getlist('toppings')`
     ```python
         toppings_list = request.form.getlist('toppings')
     ```
 
-- [FIX] Commit pizza to db in `pizza_order_submit()`:
+- Commit pizza to db in `pizza_order_submit()`:
     ```python
         db.session.add(pizza)
         # Add commit after add
@@ -45,15 +46,15 @@ _Then I noticed another bug ..._
 
 ## Exercise 2
 
-### Bug 1: Missing API key
-### Bug 2: OpenWeather API city query string
+### Bug 1: Missing API key - Trace Backward
+### Bug 2: OpenWeather API city query string - Divide and Conquer / Check API docs
         'q': city,
-### Bug 3: Incorrect request.args.get(NAME) 
+### Bug 3: Incorrect request.args.get(NAME) - Trace Backward
 ```python
     city = request.args.get('city')
     units = request.args.get('units')
 ```
-### Bug 4: Incorrect JSON key
+### Bug 4: Incorrect JSON key - Trace Backward / Check return JSON data
 ```python
 'temp': result_json['main']['temp'],
 ```
@@ -61,21 +62,21 @@ _Then I noticed another bug ..._
 
 ## Exercise 3
 
-## Merge Sort
-### Bug 1: `IndexError: list index out of range`
+### Merge Sort
+### Bug 1: `IndexError: list index out of range` - Trace backward
 - Change from `i` to `j` -> `right_side[j]`
     ```
     line 37, in merge_sort
         arr[k] = right_side[i]
     ```
 
-### Bug 2: List sorted in descending order
+### Bug 2: List sorted in descending order - Trace Forward
 - Change line 23 `>` to `<` :   
 ```python
     if left_side[i] < right_side[j]:
 ```
 
-### Bug 3: `2` appears three times, missing `6` and `7`
+### Bug 3: `2` appears three times, missing `6` and `7` - Trace Forward
 - Increment `k +=1 ` in the `while` `i`/`j` < `len(left_side)`/`len(right_side)` checks
 ```python
     while i < len(left_side):
@@ -89,18 +90,17 @@ _Then I noticed another bug ..._
         k += 1
 ```
 
-## Binary Search
-
-### Bug 1: `TypeError: list indices must be integers or slices, not float`
+### Binary Search
+### Bug 1: `TypeError: list indices must be integers or slices, not float` - Trace backward
 - For line, 51, use floor int division (`//`) for mid  
 ```python
     mid = (high + low) // 2
 ```
 
-### Bug 2: Comments/pseudocode is mismatched to code, 
+### Bug 2: Comments/pseudocode is mismatched to code, - Trace Forward
 - Rearranged pseudocode to line up with correct code
 
-### Bug 3: Index of 5 is: -1, but should be 4
+### Bug 3: Index of 5 is: -1, but should be 4 - Trace Forward / Divide and Conquer
 - Change line 49 to include condition when `low == high` so that it can complete and utilize the `else` condition to return `mid`  
 ```python
     while low <= high:

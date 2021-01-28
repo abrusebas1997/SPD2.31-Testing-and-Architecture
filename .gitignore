@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+.DS_STORE
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -143,3 +145,4 @@ dmypy.json
 .prof
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+.DS_Store

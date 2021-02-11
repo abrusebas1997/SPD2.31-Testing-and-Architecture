@@ -19,11 +19,6 @@ Study the file '**rename_method.py**'. Use 'rename method' technique to clarify 
 
 Study the file '**split_temp_variable2.py**'. Use 'split temporary variable' technique to clarify the code (make it easier to understand its intent.)
 
-## [x] Exercise 11: 'Introducing Explaining Variable' Technique
-
-Study the file '**introduce_explaining_variable.py**'. Use Replace Temp with query' technique to improve readability of the code. 
-
-
 # Where to Submit Your Answer
 
 Please submit your work to Gradescope.

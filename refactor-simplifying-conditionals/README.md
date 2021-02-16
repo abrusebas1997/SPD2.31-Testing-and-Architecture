@@ -6,7 +6,7 @@ In this series of exercises, we practice various refactoring techniques. You may
 
 Study the file '**introduce_explaining_variable.py**'. Use 'Replace Temp with query' technique to improve readability of the code. 
 
-## Exercise 12: 'Decompose Conditional' Technique
+## [x] Exercise 12: 'Decompose Conditional' Technique
 
 Study the file '**decompose_conditional2.py**'. Use 'decompose conditional' technique to improve readability of the code. 
 

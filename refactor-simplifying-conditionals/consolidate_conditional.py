@@ -22,7 +22,6 @@ class Shirazi(Recipe):
     def check_ingredients(self, user_ingredients):
         return set(user_ingredients) == set(self.ingredients)
 
-
     def prep_salad(self):
         self.dice(self.ingredients)
         self.mix_all(self.ingredients)

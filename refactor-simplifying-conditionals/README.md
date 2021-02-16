@@ -10,7 +10,7 @@ Study the file '**introduce_explaining_variable.py**'. Use 'Replace Temp with qu
 
 Study the file '**decompose_conditional2.py**'. Use 'decompose conditional' technique to improve readability of the code. 
 
-## Exercise  13: 'Consolidate Conditional Expression' Technique
+## [x] Exercise  13: 'Consolidate Conditional Expression' Technique
 
 Study the file '**consolidate_conditional.py**'. Use 'consolidate conditional expression' technique to improve readability of the code.
 

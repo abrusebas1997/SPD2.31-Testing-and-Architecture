@@ -1,17 +1,17 @@
-class Constant(object):
-    '''You can initialize a value but not change it.'''
-    def __init__(self, value):
-        self.value = value
+# class Constant(object):
+#     '''You can initialize a value but not change it.'''
+#     def __init__(self, value):
+#         self.value = value
 
-    def __get__(self, obj, type=None):
-        return self.value
+#     def __get__(self, obj, type=None):
+#         return self.value
 
 class Burger:
-    PATTY = Constant(70) # [gr]
-    PICKLE = Constant(20) # [gr]
-    TOMATO = Constant(25) # [gr]
-    LETTUCE = Constant(15) # [gr]
-    BUN = Constant(95) # [gr]
+    PATTY = 70 # [gr]
+    PICKLE = 20 # [gr]
+    TOMATO = 25 # [gr]
+    LETTUCE = 15 # [gr]
+    BUN = 95 # [gr]
 
     def __init__(self, name):
         self.name = name
@@ -23,8 +23,8 @@ class Burger:
         print(f'{self.name}: {self.calc_weight()} grams')
 
 class SeoulBurger(Burger):
-    KIMCHI = Constant(30) # [gr]
-    MAYO = Constant(5) # [gr]
+    KIMCHI = 30 # [gr]
+    MAYO = 5 # [gr]
 
     def __init__(self, name):
         super().__init__(name)

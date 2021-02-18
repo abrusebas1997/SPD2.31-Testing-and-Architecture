@@ -37,9 +37,9 @@ Students by the end of the course will be able to ...
 |  3 |  Thu, Jan 28                         | [Using a Debugger](https://docs.google.com/presentation/d/1Lf1UfOtA02nUmL53Gf8CJwqEpaVXicpvSOa-mTuh8rg/edit?usp=sharing) |
 |  4 |  Tue, Feb 2                     | [Refactoring - PEP 8](https://docs.google.com/presentation/d/1d-uhUf_7v4PfbMFO_1sFcaRC5koy-hpoPCtq3Oku4ns/edit?usp=sharing) |
 |  5 |  Thu, Feb 4                        | [Refactoring - Composing Methods](https://docs.google.com/presentation/d/1vurOh1MhSBfVDTvbFwbgTEEPOgiC7M5pIUt-jCyHIj4/edit?usp=sharing) |
-|  6 |  Tue, Feb 9                     |  Refactoring -  Organizing Data  |
-|  7 |  Tue, Feb 11                     |  Refactoring - Simplifying Conditional Expressions |              |
-|  8 |  Tue, Feb 16                     | Refactoring - Other Refactoring Techniques |
+|  6 |  Tue, Feb 9                     |  [Refactoring -  Composing Methods 2](https://docs.google.com/presentation/d/1a6NUs6GtLyf4FxIGTFwc_0nCiwDkwPMawY0BtIj1ND8/edit?usp=sharing)  |
+|  7 |  Tue, Feb 11                     |  [Refactoring - Simplifying Conditional Expressions](https://docs.google.com/presentation/d/1cJyY00m2iAOq1oq_hZCt3_3iNhbu2TqZvEcf3aF4jG4/edit?usp=sharing) |              |
+|  8 |  Tue, Feb 16                     | [Refactoring - Other Refactoring Techniques](https://docs.google.com/presentation/d/1iHNX9A0Zzi_cjBn_dL1A-7kzB3qO6KbaUXQ9B3IaWT0/edit?usp=sharing) |
 |  9 |  Thu, Feb 18                      | Refactoring  - Lab|
 | 10 |  Tue, Feb 23                     | Unit Testing 1 |
 | 11 |  Thu, Feb 25                        | Unit Testing 2|

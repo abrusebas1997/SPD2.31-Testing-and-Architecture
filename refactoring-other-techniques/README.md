@@ -3,11 +3,11 @@
 In this series of exercises, we practice various refactoring techniques. You may want to run pylint on this script to find any pep8 compliance issues. Fix as much as issues you can.
 
 
-## Exercise 21: 'Move Attribute' Technique
+## [x] Exercise 21: 'Move Attribute' Technique
 
 Study '**move_field2.py**'. Use 'move attribute' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 
-## Exercise 22: 'Extract Class' Technique
+## [x] Exercise 22: 'Extract Class' Technique
 
 Study '**extract_class.py**'. Use 'extract class' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 

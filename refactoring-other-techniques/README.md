@@ -19,11 +19,11 @@ Study '**extract_class2.py**'. Use 'extract class' technique in combination with
 
 Study '**extract_class3.py**'. Use 'extract class' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 
-## Exercise 25: 'Replace Magic Number with Symbolic Constant' Technique
+## [x] Exercise 25: 'Replace Magic Number with Symbolic Constant' Technique
 
 Study '**replace_magic_numbers_with_named_constants.py**'. Use 'replace magic number with symbolic constant' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 
-## Exercise 26: 'Extract Superclass' Technique
+## [x] Exercise 26: 'Extract Superclass' Technique
 
 Study '**extract_superclass2.py**'. Use 'extract class' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 

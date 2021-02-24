@@ -161,7 +161,7 @@ def test_palindrom():
 
 ```
 
-## Exercise 2 (to be submitted to gradescope)
+## [x] Exercise 2 (to be submitted to gradescope)
 
 #### Carbon 14 Dating
 

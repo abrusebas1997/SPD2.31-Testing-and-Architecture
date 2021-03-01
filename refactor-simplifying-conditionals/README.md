@@ -24,7 +24,7 @@ Study the file '**remove_control_flag.py**'. Use 'remove control flag' technique
 
 ## [x] Exercise  16: 'Replace Nested Conditional with Guard Clauses' Technique
 
-Study the file '**replace_nested_conditional_with_gaurd_clauses2.py**'.py. Use 'Replace Nested Conditional with Gaurd Clauses' technique to improve readability of the code.
+Study the file '**replace_nested_conditional_with_guard_clauses2.py**'.py. Use 'Replace Nested Conditional with Gaurd Clauses' technique to improve readability of the code.
 
 ## [x] Exercise  17: 'Decompose Conditional' Technique
 
@@ -38,9 +38,9 @@ Study '**consolidate_duplicate_conditional_fragments2.py**' file. Use 'consolida
 
 Study '**remove_control_flag2.py**' and '**remove_control_flag3.py**'. Use 'remove control flag' technique in combination with any other refactoring technique you've learned to improve readability of the code.
 
-## Exercise 20: 'Replace Nested Conditional With Guard Clauses' Technique
+## [x] Exercise 20: 'Replace Nested Conditional With Guard Clauses' Technique
 
-Study '**replace_nested_conditional_with_gaurd_clauses.py**'. Use 'replace nested conditional with gaurded clauses' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
+Study '**replace_nested_conditional_with_guard_clauses.py**'. Use 'replace nested conditional with gaurded clauses' technique in combination with any other refactoring technique you've learned to improve readability/modularity of the code.
 
 
 # Where to Submit Your Answer

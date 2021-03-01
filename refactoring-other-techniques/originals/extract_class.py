@@ -27,6 +27,3 @@ for key, value in foods.items():
     print()
     print("recipe", value[5])
     print("***")
-
-
-

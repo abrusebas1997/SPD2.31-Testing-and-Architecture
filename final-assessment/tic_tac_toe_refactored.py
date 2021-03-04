@@ -26,7 +26,8 @@ def drawBoard(board):
     print('-----------')
     print('   |   |')
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
-    print('   |   |\n')
+    print('   |   |')
+    # print('\n')
 
 def inputPlayerLetter():
     """
@@ -172,20 +173,19 @@ def initGamePrompt():
         if not playAgain():
             break
 
-def startGame(firstMove, letters):
-    ''' Start the game. The
+def startGame(first, letters):
+    ''' Start the game.
 
-    Arguments:
-    firstMove -> str: whoever gets returned by whoGoesFirst()
+    Parameters:
+    first -> str: whoever gets returned by whoGoesFirst()
     letters -> list: 'x' or 'o' assignments for player & computer at index 0,1 respectively
 
     '''
 
     # Reset the board
     theBoard = [' '] * BOARD_SIZE
-    # drawBoard(theBoard)
 
-    if firstMove == 'player':
+    if first == 'player':
         currentMove = 0
     else:
         # computer goes first
@@ -196,12 +196,13 @@ def startGame(firstMove, letters):
         if currentMove == 0:
             move = getPlayerMove(theBoard)
         else:
-            print("Computer's Turn")
+            # print("Computer's Turn")
             move = getComputerMove(theBoard, letters)
 
-        # Make the move and update board
+        # Make the move and update board after both players move
         makeMove(theBoard, letters[currentMove], move)
-        drawBoard(theBoard)
+        if currentMove == 1:
+            drawBoard(theBoard)
 
         if isWinner(theBoard, letters[currentMove]):
             if currentMove == 0:

@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+design-patterns-observer/weather_station.py
+
 .DS_Store
 
 ### Python ###
@@ -145,4 +147,3 @@ dmypy.json
 .prof
 
 # End of https://www.toptal.com/developers/gitignore/api/python
-.DS_Store

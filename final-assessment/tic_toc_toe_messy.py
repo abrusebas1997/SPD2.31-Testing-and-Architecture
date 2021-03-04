@@ -9,8 +9,11 @@
 
 import random
 
+# "board" is a list of 10 strings representing the board (ignore index 0)
+BOARD_SIZE = 10
+
 def drawBoard(board):
-   """ This function prints out the board that it was passed. """
+    """ This function prints out the board that it was passed. """
 
     # "board" is a list of 10 strings representing the board (ignore index 0)
     print('   |   |')
@@ -23,7 +26,7 @@ def drawBoard(board):
     print('-----------')
     print('   |   |')
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
-    print('   |   |')
+    print('   |   |\n')
 
 def inputPlayerLetter():
     """
@@ -62,22 +65,17 @@ def isWinner(bo, le):
     We use bo instead of board and le instead of letter so we don’t have to type as much.
     """
     return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
-    (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle    # TODO: Fix the indentation of this lines and the following ones.
-    (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
-    (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
-    (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
-    (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side
-    (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
-    (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
+        (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle
+        (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
+        (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
+        (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
+        (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side
+        (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
+        (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
 
 def getBoardCopy(board):
     """Make a duplicate of the board list and return it the duplicate."""
-    dupeBoard = []
-
-    for i in range(0, len(board)): # TODO: Clean this mess!
-        dupeBoard.append(board[i])
-
-    return dupeBoard
+    return board.copy()
 
 def isSpaceFree(board, move):
     """Return true if the passed move is free on the passed board."""
@@ -104,7 +102,7 @@ def chooseRandomMoveFromList(board, movesList):
         return random.choice(possibleMoves)
     return None
 
-def getComputerMove(board, computerChoice):
+def getComputerMove(board, letters):
     """
     Given a board and the computer's letter, determine where to move and return that move.
 
@@ -114,28 +112,27 @@ def getComputerMove(board, computerChoice):
       Try to take one of the corners, if they are free.
       Try to take the center, if it is free.
       Move on one of the sides.
+
+     inputPlayerLetter() returns Player and computer letters in list at index 0 and 1 respectively
     """
-    # W0621: Redefining name 'computerLetter' from outer scope. Hint: Fix it according to https://stackoverflow.com/a/25000042/81306
-    if computerChoice == 'X':
-        playerLetter = 'O'
-    else:
-        playerLetter = 'X'
+    player = letters[0]
+    computer = letters[1]
 
     # Here is our algorithm for our Tic Tac Toe AI:
     # First, check if we can win in the next move
-    for i in range(1, 10):
+    for i in range(1,BOARD_SIZE):
         copy = getBoardCopy(board)
         if isSpaceFree(copy, i):
-            makeMove(copy, computerChoice, i)
-            if isWinner(copy, computerChoice):
+            makeMove(copy, computer, i)
+            if isWinner(copy, computer):
                 return i
 
     # Check if the player could win on their next move, and block them.
-    for i in range(1, 10):
+    for i in range(1,BOARD_SIZE):
         copy = getBoardCopy(board)
         if isSpaceFree(copy, i):
-            makeMove(copy, playerLetter, i)
-            if isWinner(copy, playerLetter):
+            makeMove(copy, player, i)
+            if isWinner(copy, player):
                 return i
 
     # Try to take one of the corners, if they are free.
@@ -154,63 +151,71 @@ def getComputerMove(board, computerChoice):
 
 def isBoardFull(board):
     """Return True if every space on the board has been taken. Otherwise return False."""
-    for i in range(1, 10):
+    for i in range(1,BOARD_SIZE):
         if isSpaceFree(board, i):
             return False
     return True
 
+def initGamePrompt():
+    ''' Initialize Game Prompt'''
+    print('Welcome to Tic Tac Toe!')
 
-print('Welcome to Tic Tac Toe!')
+    while True:
 
-# TODO: The following mega code block is a huge hairy monster. Break it down
-# into smaller methods. Use TODO s and the comment above each section as a guide
-# for refactoring.
+        assignedLetters = inputPlayerLetter()
 
-while True:
+        firstTurn = whoGoesFirst()
+        print('The ' + firstTurn + ' will go first.')
+
+        startGame(firstTurn, assignedLetters)
+
+        if not playAgain():
+            break
+
+def startGame(firstMove, letters):
+    ''' Start the game. The
+
+    Arguments:
+    firstMove -> str: whoever gets returned by whoGoesFirst()
+    letters -> list: 'x' or 'o' assignments for player & computer at index 0,1 respectively
+
+    '''
+
     # Reset the board
-    theBoard = [' '] * 10 # TODO: Refactor the magic number in this line (and all of the occurrences of 10 thare are conceptually the same.)
-    playerLetter, computerLetter = inputPlayerLetter()
-    turn = whoGoesFirst()
-    print('The ' + turn + ' will go first.')
-    gameIsPlaying = True # TODO: Study how this variable is used. Does it ring a bell? (which refactoring method?)
-                         #       See whether you can get rid of this 'flag' variable. If so, remove it.
+    theBoard = [' '] * BOARD_SIZE
+    # drawBoard(theBoard)
 
-    while gameIsPlaying: # TODO: Usually (not always), loops (or their content) are good candidates to be extracted into their own function.
-                         #       Use a meaningful name for the function you choose.
-        if turn == 'player':
-            # Player’s turn.
-            drawBoard(theBoard)
+    if firstMove == 'player':
+        currentMove = 0
+    else:
+        # computer goes first
+        currentMove = 1
+
+    while True:
+        # Player’s turn.
+        if currentMove == 0:
             move = getPlayerMove(theBoard)
-            makeMove(theBoard, playerLetter, move)
-
-            if isWinner(theBoard, playerLetter):
-                drawBoard(theBoard)
-                print('Hooray! You have won the game!')
-                gameIsPlaying = False
-            else:  # TODO: is this 'else' necessary?
-                if isBoardFull(theBoard):
-                    drawBoard(theBoard)
-                    print('The game is a tie!')
-                    break
-                else:  # TODO: Is this 'else' necessary?
-                    turn = 'computer'
-
         else:
-            # Computer’s turn.
-            move = getComputerMove(theBoard, computerLetter)
-            makeMove(theBoard, computerLetter, move)
+            print("Computer's Turn")
+            move = getComputerMove(theBoard, letters)
 
-            if isWinner(theBoard, computerLetter):
-                drawBoard(theBoard)
+        # Make the move and update board
+        makeMove(theBoard, letters[currentMove], move)
+        drawBoard(theBoard)
+
+        if isWinner(theBoard, letters[currentMove]):
+            if currentMove == 0:
+                print('Hooray! You have won the game!')
+            else:
                 print('The computer has beaten you! You lose.')
-                gameIsPlaying = False
-            else:     # TODO: is this 'else' necessary?
-                if isBoardFull(theBoard):
-                    drawBoard(theBoard)
-                    print('The game is a tie!')
-                    break
-                else: # TODO: Is this 'else' necessary?
-                    turn = 'player'
+            break
 
-    if not playAgain():
-        break
+        if isBoardFull(theBoard):
+            print('The game is a tie!')
+            break
+
+        # Toggles current move between player and computer
+        currentMove ^= 1
+
+if __name__ == "__main__":
+    initGamePrompt()
